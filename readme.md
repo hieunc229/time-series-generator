@@ -2,13 +2,13 @@
 
 Generate a time-series, based on a time window.
 
-A common used is to generate time-series for analytics. For example, number of active users each day, start from `Feb 12, 2021` to `Mar 12, 2021`. You can use `Time Series Generator` to generate a list of 28 dates (from `start` date to `end` date).
+A common use-case is to generate time-series for analytics. For example, number of active users each day, start from `Feb 12, 2021` to `Mar 12, 2021`. You can use `Time Series Generator` to generate a list of 28 dates (from `start` date to `end` date).
 
 Table of content
 
 1. [How to use](1-how-to-use)
 2. [Installation][2-installation]
-3. [Run test](3-run-test)
+3. [Build and Test](3-build-and-test)
 4. [License](4-license)
 5. [Feedback and Contribution](5-feedback-and-contribution)
 
@@ -73,7 +73,7 @@ $ yarn add time-series-generator
 ```html
 
 <!-- Embed latest version from jsdelivr (replace @latest with @{version number}) -->
-<script src="https://cdn.jsdelivr.net/npm/time-series-generator@latest/dist/browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/time-series-generator@latest/browser/index.min.js"></script>
 
 <!-- Once the script is loaded, you can call window.GenerateTimeSeries -->
 <script>
@@ -83,9 +83,17 @@ const series = GenerateTimeSeries({ ... });
 
 ---
 
-## 3. Run Test
+## 3. Build and Test
 
-You can run test by comman `yarn test` or `npm test`
+Note: You should build before test. 
+
+Run the following command (I'll use `yarn`, but also similar with `npm run`)
+
+- To build as a npm module, run `yarn build`. Output files will located at `./dist`
+- To build for browser,  run `yarn build-browser`. Output file will located at `./browser` (only `index.min.js`)
+
+A test file is located on `./tests` directory. 
+- Run test by run command `yarn test`
 
 ## 4. License
 

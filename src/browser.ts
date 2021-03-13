@@ -1,9 +1,5 @@
 import GenerateTimeSeries from "./Generator";
+import "./globalVariable";
 
-if (typeof window !== undefined) {
-    (function (host: any) {
-        if (host) {
-            host.GenerateTimeSeries = GenerateTimeSeries
-        }
-    })(window)
-}
+
+export default GenerateTimeSeries;
