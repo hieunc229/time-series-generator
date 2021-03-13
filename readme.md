@@ -6,11 +6,11 @@ A common use-case is to generate time-series for analytics. For example, number 
 
 Table of content
 
-1. [How to use](1-how-to-use)
-2. [Installation][2-installation]
-3. [Build and Test](3-build-and-test)
-4. [License](4-license)
-5. [Feedback and Contribution](5-feedback-and-contribution)
+1. [How to use](#1-how-to-use)
+2. [Installation](#2-installation)
+3. [Build and Test](#3-build-and-test)
+4. [License](#4-license)
+5. [Feedback and Contribution](#5-feedback-and-contribution)
 
 ---
 
@@ -26,15 +26,7 @@ const TimeSeries = require("time-series-generator"); //add .default in some case
 const series = TimeSeries({
   startDate: Date,
   endDate: Date,
-  interval:
-    `millisecond` |
-    `second` |
-    `minute` |
-    `hour` |
-    `day` |
-    `week` |
-    `month` |
-    `year`,
+  interval: `millisecond` | `second` | `minute` | `hour` | `day` | `week` | `month` | `year`,
   intervalValue: number, //optional
 });
 
@@ -51,6 +43,8 @@ const series = TimeSeries({
 - `intervalValue`: the number value of `interval`, set to `1` by default. For example, `interval=second`, `intervalValue=3`, output will generate a list of date `each 3 second`.
 
 Note: `startDate` can either be less than, or greater than `endDate`.
+
+See [./tests/Generator.test.js](./tests/Generator.test.js) for examples
 
 ---
 

@@ -11,11 +11,17 @@
   },
   "keywords": [
     "time",
+    "time-series",
+    "analytics",
     "series",
     "time",
     "window"
   ],
   "author": "Hieu C. Nguyen",
+  "homepage": "https://github.com/hieunc229/time-series-generator",
+  "bugs": {
+    "url": "https://github.com/hieunc229/time-series-generator/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "mocha": "^8.3.2",
