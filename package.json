@@ -1,0 +1,22 @@
+{
+  "name": "time-series-generator",
+  "version": "0.0.1",
+  "description": "Generate time series given start, end and a time window",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha ./tests/*.js"
+  },
+  "keywords": [
+    "time",
+    "series",
+    "time",
+    "window"
+  ],
+  "author": "Hieu C. Nguyen",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^8.3.2",
+    "typescript": "^4.2.3"
+  }
+}
