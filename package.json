@@ -1,6 +1,6 @@
 {
   "name": "time-series-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate time series given start, end and a time window",
   "main": "dist/index.js",
   "scripts": {
