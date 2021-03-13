@@ -1,6 +1,6 @@
 # ⏰ Time Series Generator
 
-Generate a time-series, based on a time window.
+`time-series-generator` is a library for generating time-series. Works on NodeJS, and browsers
 
 A common use-case is to generate time-series for analytics. For example, number of active users each day, start from `Feb 12, 2021` to `Mar 12, 2021`. You can use `Time Series Generator` to generate a list of 28 dates (from `start` date to `end` date).
 
@@ -38,8 +38,8 @@ const series = TimeSeries({
 ```
 
 - `startDate`: begining of datetime period
-- `endDate`: end of datetime period ()
-- `interval`: output series based on givin interval `millisecond`, `second`, ...
+- `endDate`: end of datetime period
+- `interval`: output series based on given interval `millisecond`, `second`, ...
 - `intervalValue`: the number value of `interval`, set to `1` by default. For example, `interval=second`, `intervalValue=3`, output will generate a list of date `each 3 second`.
 
 Note: `startDate` can either be less than, or greater than `endDate`.
