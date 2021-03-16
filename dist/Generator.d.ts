@@ -4,6 +4,7 @@ export declare type GenerateTimeSeriesParams = {
     endDate: Date;
     interval: GenerateTimeSeriesInterval;
     intervalValue?: number;
+    floorInput?: boolean;
 };
 export declare type GenerateTimeSeriesResult = {
     startDate: Date;
@@ -17,6 +18,7 @@ export declare type GenerateTimeSeriesResults = GenerateTimeSeriesResult[];
  * - @param {Date} endDate: end of the period
  * - @param {GenerateTimeSeriesInterval} interval
  * - @param {number} intervalValue (optional)
+ * - @param {boolean} floorInput (optional) floor date inputs (i.e when interval is "minute", set all "minute", "second", "millisecond" to 0)
  * }
  * @returns {GenerateTimeSeriesResults} array of { startDate: Date, endDate: Date }
  */

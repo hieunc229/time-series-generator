@@ -7,35 +7,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * - @param {Date} endDate: end of the period
  * - @param {GenerateTimeSeriesInterval} interval
  * - @param {number} intervalValue (optional)
+ * - @param {boolean} floorInput (optional) floor date inputs (i.e when interval is "minute", set all "minute", "second", "millisecond" to 0)
  * }
  * @returns {GenerateTimeSeriesResults} array of { startDate: Date, endDate: Date }
  */
 function GenerateTimeSeries(options) {
-    var _a = options.startDate, startDate = _a === void 0 ? new Date() : _a, _b = options.endDate, endDate = _b === void 0 ? new Date() : _b, interval = options.interval, intervalValue = options.intervalValue;
+    var _a = options.startDate, startDate = _a === void 0 ? new Date() : _a, _b = options.endDate, endDate = _b === void 0 ? new Date() : _b, interval = options.interval, intervalValue = options.intervalValue, _c = options.floorInput, floorInput = _c === void 0 ? true : _c;
     var start = new Date(Math.min(startDate.getTime(), endDate.getTime()));
     var end = new Date(Math.max(startDate.getTime(), endDate.getTime()));
-    switch (interval) {
-        case "year":
-            start.setMonth(0);
-            end.setMonth(0);
-        case "month":
-        case "week":
-        case "day":
-            start.setHours(0, 0, 0, 0);
-            end.setHours(0, 0, 0, 0);
-            break;
-        case "hour":
-            start.setMinutes(0, 0, 0);
-            end.setMinutes(0, 0, 0);
-            break;
-        case "minute":
-            start.setSeconds(0, 0);
-            end.setSeconds(0, 0);
-            break;
-        case "second":
-            start.setMilliseconds(0);
-            end.setMilliseconds(0);
-            break;
+    if (floorInput) {
+        switch (interval) {
+            case "year":
+                start.setMonth(0);
+                end.setMonth(0);
+            case "month":
+            case "week":
+            case "day":
+                start.setHours(0, 0, 0, 0);
+                end.setHours(0, 0, 0, 0);
+                break;
+            case "hour":
+                start.setMinutes(0, 0, 0);
+                end.setMinutes(0, 0, 0);
+                break;
+            case "minute":
+                start.setSeconds(0, 0);
+                end.setSeconds(0, 0);
+                break;
+            case "second":
+                start.setMilliseconds(0);
+                end.setMilliseconds(0);
+                break;
+        }
     }
     var startTime = new Date(start);
     var data = [];

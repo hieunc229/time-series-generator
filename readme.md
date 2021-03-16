@@ -1,5 +1,7 @@
 # ⏰ Time Series Generator
 
+<a href="https://packagephobia.now.sh/result?p=time-series-generator"><img src="https://badgen.net/packagephobia/install/time-series-generator" alt="Current version"></a> <a href="https://www.npmjs.com/package/time-series-generator"><img src="https://img.shields.io/npm/v/time-series-generator" alt="Install size"></a>
+
 `time-series-generator` is a library for generating time-series. Works on NodeJS, and browsers
 
 ![Sample output](./screenshoot.png)
@@ -13,6 +15,7 @@ Table of content
 3. [Build and Test](#3-build-and-test)
 4. [License](#4-license)
 5. [Feedback and Contribution](#5-feedback-and-contribution)
+6. [Changelog](#6-changelog)
 
 ---
 
@@ -29,7 +32,8 @@ const series = TimeSeries({
   startDate: Date,
   endDate: Date,
   interval: `millisecond` | `second` | `minute` | `hour` | `day` | `week` | `month` | `year`,
-  intervalValue: number, //optional
+  intervalValue: number, // optional
+  floorInput: boolean, // optional. `true` by default 
 });
 
 // series => [
@@ -43,6 +47,7 @@ const series = TimeSeries({
 - `endDate`: end of datetime period
 - `interval`: output series based on given interval `millisecond`, `second`, ...
 - `intervalValue`: the number value of `interval`, set to `1` by default. For example, `interval=second`, `intervalValue=3`, output will generate a list of date `each 3 second`.
+- `floorInput`: floor date inputs to the nearest `interval` value (i.e when interval is "minute", set all "minute", "second", "millisecond" to 0)
 
 Note: `startDate` can either be less than, or greater than `endDate`.
 
@@ -69,6 +74,7 @@ $ yarn add time-series-generator
 ```html
 
 <!-- Embed latest version from jsdelivr (replace @latest with @{version number}) -->
+<!-- P/s: When you use @latest, beware of caching when the version is changed-->
 <script src="https://cdn.jsdelivr.net/npm/time-series-generator@latest/browser/index.min.js"></script>
 
 <!-- Once the script is loaded, you can call window.GenerateTimeSeries -->
@@ -91,10 +97,22 @@ Run the following command (I'll use `yarn`, but also similar with `npm run`)
 A test file is located on `./tests` directory. 
 - Run test by run command `yarn test`
 
+---
+
 ## 4. License
 
 MIT
 
+---
+
 ## 5. Feedback and Contribution
 
 Please open a thread for feedback, question. Feel free to create PR for contribution.
+
+--
+
+
+## 6. Changelog
+
+0.0.5 - added `floorInput` to floor date inputs to the nearest `interval` value
+0.0.4 - initate

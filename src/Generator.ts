@@ -1,6 +1,12 @@
 
 export type GenerateTimeSeriesInterval = "millisecond" | "second" | "minute" | "hour" | "day" | "week" | "month" | "year";
-export type GenerateTimeSeriesParams = { startDate: Date, endDate: Date, interval: GenerateTimeSeriesInterval, intervalValue?: number };
+export type GenerateTimeSeriesParams = {
+    startDate: Date,
+    endDate: Date,
+    interval: GenerateTimeSeriesInterval,
+    intervalValue?: number,
+    floorInput?: boolean
+};
 export type GenerateTimeSeriesResult = { startDate: Date, endDate: Date };
 export type GenerateTimeSeriesResults = GenerateTimeSeriesResult[];
 
@@ -11,38 +17,47 @@ export type GenerateTimeSeriesResults = GenerateTimeSeriesResult[];
  * - @param {Date} endDate: end of the period
  * - @param {GenerateTimeSeriesInterval} interval
  * - @param {number} intervalValue (optional)
+ * - @param {boolean} floorInput (optional) floor date inputs (i.e when interval is "minute", set all "minute", "second", "millisecond" to 0)
  * }
  * @returns {GenerateTimeSeriesResults} array of { startDate: Date, endDate: Date }
  */
 export default function GenerateTimeSeries(options: GenerateTimeSeriesParams) {
 
-    let { startDate = new Date(), endDate = new Date(), interval, intervalValue } = options;
+    let {
+        startDate = new Date(),
+        endDate = new Date(),
+        interval,
+        intervalValue,
+        floorInput = true
+    } = options;
 
     let start = new Date(Math.min(startDate.getTime(), endDate.getTime()));
     let end = new Date(Math.max(startDate.getTime(), endDate.getTime()));
 
-    switch (interval) {
-        case "year":
-            start.setMonth(0);
-            end.setMonth(0);
-        case "month":
-        case "week":
-        case "day":
-            start.setHours(0, 0, 0, 0);
-            end.setHours(0, 0, 0, 0);
-            break;
-        case "hour":
-            start.setMinutes(0, 0, 0);
-            end.setMinutes(0, 0, 0);
-            break;
-        case "minute":
-            start.setSeconds(0, 0);
-            end.setSeconds(0, 0);
-            break;
-        case "second":
-            start.setMilliseconds(0);
-            end.setMilliseconds(0);
-            break;
+    if (floorInput) {
+        switch (interval) {
+            case "year":
+                start.setMonth(0);
+                end.setMonth(0);
+            case "month":
+            case "week":
+            case "day":
+                start.setHours(0, 0, 0, 0);
+                end.setHours(0, 0, 0, 0);
+                break;
+            case "hour":
+                start.setMinutes(0, 0, 0);
+                end.setMinutes(0, 0, 0);
+                break;
+            case "minute":
+                start.setSeconds(0, 0);
+                end.setSeconds(0, 0);
+                break;
+            case "second":
+                start.setMilliseconds(0);
+                end.setMilliseconds(0);
+                break;
+        }
     }
 
     let startTime = new Date(start);
