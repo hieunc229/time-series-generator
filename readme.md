@@ -1,6 +1,6 @@
 # ⏰ Time Series Generator
 
-<a href="https://packagephobia.now.sh/result?p=time-series-generator"><img src="https://badgen.net/packagephobia/install/time-series-generator" alt="Current version"></a> <a href="https://www.npmjs.com/package/time-series-generator"><img src="https://img.shields.io/npm/v/time-series-generator" alt="Install size"></a>
+<a href="https://packagephobia.now.sh/result?p=time-series-generator"><img src="https://badgen.net/packagephobia/install/time-series-generator" alt="Current version"></a> <a href="https://www.npmjs.com/package/time-series-generator"><img src="https://img.shields.io/npm/v/time-series-generator" alt="Install size"></a> <a href="https://cdn.jsdelivr.net/npm/time-series-generator@latest/browser/index.min.js"><img src="https://img.shields.io/badge/jsdelivr-Available-green" alt="jsDelivr Support Badge"></a>
 
 `time-series-generator` is a library for generating time-series. Works on NodeJS, and browsers
 
