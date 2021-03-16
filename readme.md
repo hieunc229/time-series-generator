@@ -2,6 +2,8 @@
 
 `time-series-generator` is a library for generating time-series. Works on NodeJS, and browsers
 
+![Sample output](./screenshoot.png)
+
 A common use-case is to generate time-series for analytics. For example, number of active users each day, start from `Feb 12, 2021` to `Mar 12, 2021`. You can use `Time Series Generator` to generate a list of 28 dates (from `start` date to `end` date).
 
 Table of content
